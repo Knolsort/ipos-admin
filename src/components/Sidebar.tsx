@@ -18,7 +18,7 @@ const Sidebar: React.FC<SidebarProps> = ({ activeTab }) => {
   ];
 
   return (
-    <div className="w-64 bg-gray-900 min-h-screen p-4">
+    <div className="sticky top-0 left-0 w-64 bg-gray-900  max-h-screen p-4">
       <div className="flex items-center space-x-2 mb-8">
         <Store className="w-8 h-8 text-purple-500" />
         <h1 className="text-white text-xl font-bold">POS Admin</h1>

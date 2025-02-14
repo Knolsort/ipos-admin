@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { api } from '../api';
 import { Product } from '../types';
 import Sidebar from '../components/Sidebar';
+import { Link } from 'react-router-dom';
+import { Edit, Plus, ShieldAlert, ShieldCheck } from 'lucide-react';
 
 function Products() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -50,13 +52,17 @@ function Products() {
   return (
     <div className="flex min-h-screen bg-black text-white">
       <Sidebar activeTab="products" />
-      
+
       <main className="flex-1 p-8">
-        <h1 className="text-3xl font-bold mb-8">Products</h1>
-        
+        <div className="flex justify-between items-center mb-8">
+          <h1 className="text-3xl font-bold ">Products</h1>
+          <Link to={'/create-products'} className='btn btn-sm btn-secondary'> <Plus /> </Link>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {products.map((product) => (
-            <div key={product.id} className="bg-gray-900 rounded-lg overflow-hidden">
+            <div key={product.id} className="relative bg-gray-900 rounded-lg overflow-hidden ">
+              <Link to="/edit-product" state={{ product }}  className='btn btn-sm btn-secondary absolute top-2 right-2'><Edit /></Link>
               <img
                 src={product.image[0]}
                 alt={product.name}
@@ -84,7 +90,7 @@ function Products() {
                 <div className="flex items-center gap-2 text-sm text-gray-400">
                   <span>Code: {product.productCode}</span>
                   <span>•</span>
-                  <span>{product.assured ? 'Assured' : 'Not Assured'}</span>
+                  <span>{product.assured ? <ShieldCheck className='text-green-500' /> : <ShieldAlert className='text-red-500' />}</span>
                 </div>
               </div>
             </div>
