@@ -51,11 +51,11 @@ function Sales() {
     <div className="flex min-h-screen bg-black text-white">
       <Sidebar activeTab="sales" />
       
-      <main className="flex-1 p-8">
+      <main className="flex-1 p-5">
         <h1 className="text-3xl font-bold mb-8">Sales</h1>
         
-        <div className="bg-gray-900 rounded-lg overflow-hidden">
-          <div className="overflow-x-auto">
+        <div className="bg-gray-900 rounded-lg pb-20 md:pb-0">
+          <div className="overflow-x-auto max-w-[88vw]">
             <table className="w-full">
               <thead>
                 <tr className="bg-gray-800">

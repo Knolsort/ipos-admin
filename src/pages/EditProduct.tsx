@@ -180,7 +180,7 @@ function EditProduct() {
             <Sidebar activeTab="products" />
 
             <section className="mt-3 flex w-full flex-col items-center justify-center rounded-md">
-                <div className="flex justify-between items-center w-full px-8 my-5">
+                <div className="flex justify-between items-center w-full px-5 my-5">
                     <Link to={'/products'} className='btn btn-sm btn-secondary'> <ChevronLeft /> </Link>
                     <h1 className="text-3xl font-bold ">{product.name}</h1>
                 </div>

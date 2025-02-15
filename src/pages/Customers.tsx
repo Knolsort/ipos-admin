@@ -51,7 +51,7 @@ function Customers() {
     <div className="flex min-h-screen bg-black text-white">
       <Sidebar activeTab="customers" />
       
-      <main className="flex-1 p-8">
+      <main className="flex-1 p-5 pb-24 md:pb-5">
         <h1 className="text-3xl font-bold mb-8">Customers</h1>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -64,7 +64,7 @@ function Customers() {
                   className="w-16 h-16 rounded-full object-cover"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
-                    target.src = 'https://via.placeholder.com/64x64?text=User';
+                    target.src = 'placeholder.svg';
                   }}
                 />
                 <div>

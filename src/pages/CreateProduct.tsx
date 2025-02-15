@@ -167,8 +167,8 @@ function CreateProduct() {
         <div className='flex'>
             <Sidebar activeTab="products" />
 
-            <section className="mt-3 flex w-full flex-col items-center justify-center rounded-md">
-                <div className="flex justify-between items-center w-full px-8 my-5">
+            <section className="mt-3 pb-20 md:pb-8 flex w-full flex-col items-center justify-center rounded-md">
+                <div className="flex justify-between items-center w-full px-5 my-5">
                     <Link to={'/products'} className='btn btn-sm btn-secondary'> <ChevronLeft /> </Link>
                     <h1 className="text-3xl font-bold ">Products</h1>
                 </div>

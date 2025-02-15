@@ -80,7 +80,7 @@ function Overview() {
     <div className="flex min-h-screen bg-black text-white">
       <Sidebar activeTab="overview" />
       
-      <main className="flex-1 p-8">
+      <main className="flex-1 p-5 pb-20 md:pb-5">
         <h1 className="text-3xl font-bold mb-8">Dashboard Overview</h1>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
