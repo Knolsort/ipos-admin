@@ -25,7 +25,9 @@ interface FormData {
     categoryId: string;
     brandId?: string;
     image: string;
-    barcode: string;
+    barcode?: string;
+    unitTypes: string[];
+    assured?: boolean;
 }
 
 function EditProduct() {
@@ -55,6 +57,8 @@ function EditProduct() {
         categoryId: product.category.id,
         image: product.image,
         barcode: product.barcode,
+        unitTypes: product.unitTypes,
+        assured: product.assured,
     });
 
     const options = ["kilogram", "gram", "count"];
@@ -121,15 +125,19 @@ function EditProduct() {
 
     const handleAddGProduct = () => {
         const productSlug = generateSlug(formData.name);
-        const updatedFormData = {
-            ...formData,
-            slug: productSlug,
-            productCode: productSlug,
-            image: imageUrl,
-            otherNames: [],
-            assured: false,
-            unitTypes: selectedOptions,
-        };
+        const updatedFormData = {}
+
+        if (formData.barcode !== product.barcode) { updatedFormData.barcode = formData.barcode; }
+        if (formData.categoryId !== product.category.id) { updatedFormData.categoryId = formData.categoryId; }
+        if (formData.brandId !== product.brand.id) { updatedFormData.brandId = formData.brandId; }
+        // if (formData.image !== product.image) { updatedFormData.image = [imageUrl]; }
+        if (formData.name !== product.name) { updatedFormData.name = formData.name; }
+        if (formData.slug !== product.slug) { updatedFormData.slug = productSlug; }
+        if (selectedOptions !== product.unitTypes) { updatedFormData.unitTypes = selectedOptions; }
+        if (formData.productCode !== product.productCode) { updatedFormData.productCode = productSlug; }
+        if (formData.assured !== product.assured) { updatedFormData.assured = false; }
+        
+        
         console.log("data for submit", updatedFormData);
 
         axios.put("https://barter-docker-607836465200.asia-south1.run.app/api/v1/gproducts", updatedFormData)
@@ -139,7 +147,7 @@ function EditProduct() {
             })
             .catch((error) => {
                 console.error('Error creating GPRODUCT:', error);
-                alert('Failed to create GPRODUCT. Please try again.');
+                alert('Failed to update GPRODUCT. Please try again.');
             });
     };
 

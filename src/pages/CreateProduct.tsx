@@ -121,7 +121,7 @@ function CreateProduct() {
             ...formData,
             slug: productSlug,
             productCode: productSlug,
-            image: imageUrl,
+            image: [imageUrl],
             otherNames: [],
             assured: false,
             unitTypes: selectedOptions,
